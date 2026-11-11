@@ -1,4 +1,3 @@
-
 FROM nginx:alpine
 
 # Jenkins CI/CD Practical Guide | HTML, VS Code, GitHub and Docker
