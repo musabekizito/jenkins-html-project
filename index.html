@@ -1,35 +1,438 @@
 <!DOCTYPE html>
-<html>
-Jenkins CI/CD Practical Guide | HTML, VS Code, GitHub and Docker
+<html lang="en">
 <head>
- <title>My First CI/CD Project</title>
- <style>
- body {
- font-family: Arial, sans-serif;
- background-color: #f0f4f8;
- text-align: center;
- padding: 50px;
- }
- h1 {
- color: #2563eb;
- }
- p {
- font-size: 20px;
- }
- button {
- background-color: #2563eb;
- color: white;
- padding: 12px 25px;
- border: none;
- border-radius: 5px;
- }
- </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUHIGURE MU MIRYANGO - Integrated System</title>
+    
+    <!-- Bootstrap CSS Framework (Task iv) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #198754;
+            --dark-bg: #212529;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Card Styles */
+        .feature-card {
+            transition: transform 0.3s;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Social Media Section (Task iii) */
+        #social {
+            background: linear-gradient(180deg, #f8f9fa 0%, #fff 100%);
+        }
+
+        .social-container {
+            height: 450px;
+            overflow-y: auto;
+            background: white;
+            padding: 12px;
+        }
+
+        .social-card {
+            border: 0;
+            box-shadow: 0 0.5rem 1.5rem rgba(33, 37, 41, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0.75rem 2rem rgba(33, 37, 41, 0.12);
+        }
+
+        .social-card .card-header {
+            border: 0;
+            padding: 1rem 1.25rem;
+            font-weight: 600;
+        }
+
+        .social-card .card-header.twitter-header {
+            background-color: #1d9bf0;
+        }
+
+        .social-card .card-header.facebook-header {
+            background-color: #1877f2;
+        }
+
+        .social-card .card-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .social-card .social-container {
+            flex: 1;
+            min-height: 0;
+        }
+
+        .social-card .twitter-timeline,
+        .social-card .fb-page {
+            max-width: 100%;
+        }
+
+        /* Form Styles */
+        .form-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
- <h1>Welcome to Our New Website!</h1>
- <p>This is my first CI/CD project using Jenkins.</p>
- <p>Developed using HTML and CSS.</p>
- <button>Learn More</button>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-hands-helping"></i> DUHIGURE MU MIRYANGO
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Program</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#registration">Family Registration</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#social">Community Feed</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Public Facing Section) -->
+    <header id="home" class="hero-section">
+        <div class="container">
+            <h1>Duhigure Mu Miryango</h1>
+            <p class="lead mt-3">Performance Contract (Imihigo) Management System</p>
+            <p>Kibungo Sector, Ngoma District</p>
+            <a href="#registration" class="btn btn-primary btn-lg mt-3">Register Your Family Now</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="text-primary">About The Program</h2>
+                    <p class="mt-3">
+                        The <strong>Duhigure Mu Miryango</strong> program is a community development initiative by Kibungo Sector. 
+                        Our goal is to improve the well-being of citizens through a structured performance contract system.
+                    </p>
+                    <p>
+                        This platform allows families to register independently or with the help of local administrative authorities (Umurenge/Imirenge). 
+                        Each member is assigned specific tasks contributing to the family's overall contract.
+                    </p>
+                    <ul class="list-group list-group-flush mt-3">
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Family Level Registration</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Individual Task Assignment</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle text-success"></i> Track Development Progress</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 text-center">
+                    <!-- Placeholder Image for Video -->
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Program Introduction" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-muted mt-2"><small>Watch: How the system works</small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form Section (Task iv & v) -->
+    <section id="registration" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="form-section">
+                        <h3 class="text-center mb-4">Family Registration Form</h3>
+                        <form id="familyForm" novalidate>
+                            <!-- Head of Family Info -->
+                            <h5 class="border-bottom pb-2 mb-3">Head of Family Information</h5>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="fullName" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="fullName" required placeholder="e.g., Jean Paul Habimana">
+                                    <div class="invalid-feedback">Please enter your full name.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="nationalId" class="form-label">National ID (Indangamuntu)</label>
+                                    <input type="text" class="form-control" id="nationalId" required pattern="[0-9]{16}" placeholder="16 Digit ID">
+                                    <div class="invalid-feedback">Please enter a valid 16-digit ID.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="phone" required pattern="[0-9]{10}" placeholder="078XXXXXXX">
+                                    <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="cell" class="form-label">Cell (Akagari)</label>
+                                    <select class="form-select" id="cell" required>
+                                        <option value="">Choose...</option>
+                                        <option>Kibungo Cell</option>
+                                        <option>Nyamugari Cell</option>
+                                        <option>Bwiza Cell</option>
+                                        <option>Other</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select your cell.</div>
+                                </div>
+                            </div>
+
+                            <!-- Family Members Section -->
+                            <h5 class="border-bottom pb-2 mb-3 mt-4">Family Members (Dependents)</h5>
+                            <div id="membersContainer">
+                                <!-- Dynamic Member Input Group -->
+                                <div class="row g-2 mb-2 member-row">
+                                    <div class="col-md-5">
+                                        <input type="text" class="form-control" placeholder="Member Name" required>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <select class="form-select" required>
+                                            <option value="">Relation...</option>
+                                            <option>Spouse</option>
+                                            <option>Child</option>
+                                            <option>Parent</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" class="form-control" placeholder="Age" min="1" max="120" required>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="button" class="btn btn-outline-secondary btn-sm mb-4" onclick="addMember()">
+                                <i class="fas fa-plus"></i> Add Another Member
+                            </button>
+
+                            <!-- Task Assignment -->
+                            <h5 class="border-bottom pb-2 mb-3">Performance Contract Task</h5>
+                            <div class="mb-3">
+                                <label for="task" class="form-label">Select Primary Family Goal</label>
+                                <select class="form-select" id="task" required>
+                                    <option value="">Choose goal...</option>
+                                    <option value="agriculture">Increase Agricultural Productivity</option>
+                                    <option value="health">Improve Health & Sanitation</option>
+                                    <option value="education">Education for Children</option>
+                                    <option value="infrastructure">Home Infrastructure Improvement</option>
+                                </select>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-success btn-lg">Submit Registration</button>
+                            </div>
+                        </form>
+                        <div id="successMessage" class="alert alert-success mt-3 d-none">
+                            <i class="fas fa-check-circle"></i> Registration Successful! Data has been validated and ready for DB.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section (Task iii) -->
+    <section id="social" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge rounded-pill text-bg-success mb-2">Stay Connected</span>
+                <h2 class="mb-2">Community Updates</h2>
+                <p class="text-muted mb-0">Get the latest news and updates from RwandaGov on social media.</p>
+            </div>
+            
+            <div class="row">
+                <!-- Twitter Feed Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="card social-card h-100">
+                        <div class="card-header twitter-header text-white d-flex align-items-center">
+                            <i class="fab fa-twitter fa-lg me-2" aria-hidden="true"></i>
+                            <span>Latest on X</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="social-container rounded border">
+                                <a class="twitter-timeline"
+                                   data-height="420"
+                                   data-dnt="true"
+                                   href="https://twitter.com/RwandaGov?ref_src=twsrc%5Etfw"
+                                   aria-label="Recent posts from RwandaGov on X">
+                                    Posts by RwandaGov
+                                </a>
+                            </div>
+                            <a class="btn btn-outline-primary mt-3 align-self-start"
+                               href="https://twitter.com/RwandaGov"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fas fa-arrow-up-right-from-square me-1" aria-hidden="true"></i>
+                                Visit RwandaGov on X
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Facebook Feed Column -->
+                <div class="col-md-6 mb-4">
+                    <div class="card social-card h-100">
+                        <div class="card-header facebook-header text-white d-flex align-items-center">
+                            <i class="fab fa-facebook fa-lg me-2" aria-hidden="true"></i>
+                            <span>Facebook Updates</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="social-container rounded border d-flex justify-content-center">
+                                <div class="fb-page"
+                                     data-href="https://www.facebook.com/RwandaGov"
+                                     data-tabs="timeline"
+                                     data-width="500"
+                                     data-height="420"
+                                     data-small-header="false"
+                                     data-adapt-container-width="true"
+                                     data-hide-cover="false"
+                                     data-show-facepile="true">
+                                    <blockquote cite="https://www.facebook.com/RwandaGov" class="fb-xfbml-parse-ignore">
+                                        <a href="https://www.facebook.com/RwandaGov">RwandaGov on Facebook</a>
+                                    </blockquote>
+                                </div>
+                            </div>
+                            <a class="btn btn-outline-primary mt-3 align-self-start"
+                               href="https://www.facebook.com/RwandaGov"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                <i class="fas fa-arrow-up-right-from-square me-1" aria-hidden="true"></i>
+                                Visit RwandaGov on Facebook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Load the social widgets once, after their embed markup. -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2026 Kibungo Sector - Duhigure Mu Miryango Program. All rights reserved.</p>
+            <p><small>Developed for Web Application Assessment</small></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Facebook SDK for Like/Feed Button -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="randomNonce"></script>
+
+    <!-- Internal JavaScript Logic -->
+    <script>
+        // Function to add dynamic family members (Task ii: JavaScript interaction)
+        function addMember() {
+            const container = document.getElementById('membersContainer');
+            const row = document.createElement('div');
+            row.className = 'row g-2 mb-2 member-row';
+            row.innerHTML = `
+                <div class="col-md-5">
+                    <input type="text" class="form-control" placeholder="Member Name" required>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select" required>
+                        <option value="">Relation...</option>
+                        <option>Spouse</option>
+                        <option>Child</option>
+                        <option>Parent</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <input type="number" class="form-control" placeholder="Age" min="1" max="120" required>
+                        <button class="btn btn-danger" type="button" onclick="this.closest('.member-row').remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(row);
+        }
+
+        // Form Validation Logic (Task v)
+        const form = document.getElementById('familyForm');
+        
+        form.addEventListener('submit', function(event) {
+            // Prevent default form submission
+            event.preventDefault();
+            event.stopPropagation();
+
+            // Check HTML5 validity
+            if (form.checkValidity()) {
+                // If valid, simulate data processing
+                console.log("Form is valid. Collecting data...");
+                
+                // Hide form and show success message
+                form.classList.add('d-none');
+                const successMsg = document.getElementById('successMessage');
+                successMsg.classList.remove('d-none');
+                
+                // Scroll to top of section
+                window.scrollTo({
+                    top: document.getElementById('registration').offsetTop,
+                    behavior: 'smooth'
+                });
+
+            } else {
+                // If invalid, show error styles
+                alert("Please check the form for errors. Ensure ID is 16 digits and Phone is 10 digits.");
+            }
+
+            form.classList.add('was-validated');
+        }, false);
+
+        // Custom validation for National ID (Task v)
+        document.getElementById('nationalId').addEventListener('input', function() {
+            if(this.value.length > 16) {
+                this.value = this.value.slice(0, 16);
+            }
+        });
+    </script>
 </body>
 </html>
